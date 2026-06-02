@@ -1,0 +1,78 @@
+# Arquivo .gitignore para Tetris Game
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+*.code-workspace
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Compilação
+*.class
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Javadoc
+docs/
+javadoc/
+
+# Dados do jogo
+tetris_data/
+*.json
+*.dat
+
+# Logs
+*.log
+log/
+
+# Ambiente
+.classpath
+.project
+.settings/
+bin/
+
+# OS Específico
+Thumbs.db
+.AppleDouble
+.LSOverride
+
+# Node (em caso de build tools)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Backup
+*.bak
+*.backup
+*.tmp
+
+# IDE específicas
+.metadata/
+.recommenders/
+RemoteSystemsTempFiles/
+
+# Gradle (se usar)
+.gradle/
+build/
