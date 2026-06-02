@@ -56,22 +56,30 @@ public class TetrisFrame extends JFrame implements TetrisEngine.GameListener, Ga
     
     @Override
     public void onPieceSpawned(Piece current, Piece next) {
-        gamePanel.repaint();
+        if (gamePanel != null) {
+            gamePanel.repaint();
+        }
     }
     
     @Override
     public void onPieceMoved(Piece piece) {
-        gamePanel.repaint();
+        if (gamePanel != null) {
+            gamePanel.repaint();
+        }
     }
     
     @Override
     public void onLinesCleared(int lines, int total) {
-        gamePanel.repaint();
+        if (gamePanel != null) {
+            gamePanel.repaint();
+        }
     }
     
     @Override
     public void onScoreChanged(long score) {
-        gamePanel.repaint();
+        if (gamePanel != null) {
+            gamePanel.repaint();
+        }
     }
     
     @Override
@@ -82,11 +90,8 @@ public class TetrisFrame extends JFrame implements TetrisEngine.GameListener, Ga
     
     @Override
     public void onGameOver(long finalScore) {
-        gamePanel.repaint();
-        
-        // Para a thread do jogo
-        if (gameThread != null) {
-            gameThread.stop();
+        if (gamePanel != null) {
+            gamePanel.repaint();
         }
         
         // Pede o nome do jogador (para v1.0)
