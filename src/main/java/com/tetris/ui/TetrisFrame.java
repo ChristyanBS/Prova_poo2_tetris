@@ -120,7 +120,7 @@ public class TetrisFrame extends JFrame implements TetrisEngine.GameListener, Ga
         if (paused) {
             gameThread.pause();
         } else {
-            gameThread.resume();
+            gameThread.resumeGame();
         }
         gamePanel.repaint();
     }
