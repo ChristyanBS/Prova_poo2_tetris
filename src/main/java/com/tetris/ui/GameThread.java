@@ -86,7 +86,7 @@ public class GameThread extends Thread {
     /**
      * Resume a thread do jogo.
      */
-    public void resume() {
+    public void resumeGame() {
         paused = false;
     }
     
