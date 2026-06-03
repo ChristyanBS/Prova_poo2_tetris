@@ -35,6 +35,10 @@ public class GameScore implements Comparable<GameScore>, Serializable {
         this.timestamp = System.currentTimeMillis();
     }
     
+    public GameScore() {
+    // Construtor vazio necessário para a serialização do Gson
+    }
+
     /**
      * Compara este placar com outro.
      * Ordena por pontuação decrescente.

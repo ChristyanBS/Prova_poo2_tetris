@@ -97,6 +97,11 @@ public class GamePanel extends JPanel {
                             listener.onLoadRequested();
                         }
                         break;
+                    case KeyEvent.VK_ESCAPE: // <-- ADICIONADO AQUI
+                        // Fecha a janela atual e volta pro menu
+                        SwingUtilities.getWindowAncestor(GamePanel.this).dispose();
+                        com.tetris.TetrisGame.main(new String[0]);
+                        break; 
                 }
             }
         });
@@ -335,10 +340,11 @@ public class GamePanel extends JPanel {
             "P: Pausar",
             "R: Reiniciar",
             "S: Salvar",
-            "L: Carregar"
+            "L: Carregar",
+            "ESC: Menu Principal" // <-- ADICIONADO AQUI
         };
         
-        int y = getHeight() - 100;
+        int y = getHeight() - 160; // <-- ALTERADO PARA -160 PARA SUBIR O TEXTO
         for (String control : controls) {
             g2d.drawString(control, 20, y);
             y += 15;

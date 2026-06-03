@@ -1,5 +1,6 @@
 package com.tetris.ui;
 
+import com.tetris.TetrisGame;
 import com.tetris.core.TetrisEngine;
 import com.tetris.model.*;
 import com.tetris.util.FileManager;
@@ -27,7 +28,7 @@ public class TetrisFrame extends JFrame implements TetrisEngine.GameListener, Ga
      * 
      * @param playerName nome do jogador
      */
-    public TetrisFrame(String playerName) {
+    public TetrisFrame(String playerName, boolean loadSave) {
         this.playerName = playerName;
         
         setTitle("Tetris - POO II 2026");
@@ -36,6 +37,18 @@ public class TetrisFrame extends JFrame implements TetrisEngine.GameListener, Ga
         
         // Cria o engine do jogo
         engine = new TetrisEngine(this);
+        
+        // CARREGA O SAVE SE O BOTÃO APERTADO FOI O "CARREGAR JOGO"
+        if (loadSave) {
+            try {
+                GameState state = FileManager.loadGameState();
+                if (state != null) {
+                    engine.loadState(state);
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Erro ao carregar: " + e.getMessage());
+            }
+        }
         
         // Cria o painel de jogo
         gamePanel = new GamePanel(engine, this);
@@ -118,7 +131,10 @@ public class TetrisFrame extends JFrame implements TetrisEngine.GameListener, Ga
             JOptionPane.showMessageDialog(this, "Erro ao salvar score: " + e.getMessage(),
                                           "Erro", JOptionPane.ERROR_MESSAGE);
         }
-    }
+         this.dispose(); // Fecha o jogo e derruba a thread
+         TetrisGame.main(new String[0]); // Reabre o menu principal
+}
+
     
     @Override
     public void onPauseStateChanged(boolean paused) {
@@ -140,11 +156,9 @@ public class TetrisFrame extends JFrame implements TetrisEngine.GameListener, Ga
         try {
             GameState state = engine.getState();
             FileManager.saveGameState(state);
-            JOptionPane.showMessageDialog(this, "Jogo salvo com sucesso!",
-                                          "Salvo", JOptionPane.INFORMATION_MESSAGE);
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(this, "Erro ao salvar: " + e.getMessage(),
-                                          "Erro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Jogo salvo com sucesso!", "Salvo", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Erro ao salvar: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }
     
@@ -176,5 +190,16 @@ public class TetrisFrame extends JFrame implements TetrisEngine.GameListener, Ga
         if (!b && gameThread != null) {
             gameThread.stop();
         }
+    }
+}
+    
+    @Override
+    public void onSaveRequested() {
+        // v0.1: Sem suporte a salvar
+    }
+    
+    @Override
+    public void onLoadRequested() {
+        // v0.1: Sem suporte a carregar
     }
 }

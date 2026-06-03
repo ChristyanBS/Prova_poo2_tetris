@@ -5,7 +5,7 @@
 | Nome Completo | RA | GitHub Username |
 |---------------------------------------|--------------|--------------|
 | Christyan Bernardo de Souza Rodrigues | 400147611024 | christyanbsr |
-| Isabella Tonelli Mello  | 12345679 | usuario2 |
+| Isabella Tonelli Mello Pires | 339858311024 | sem usuario |
 
 ## Informações do Projeto
 
