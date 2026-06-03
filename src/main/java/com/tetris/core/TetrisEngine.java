@@ -6,9 +6,6 @@ import java.util.*;
 /**
  * Engine principal do Tetris.
  * Gerencia a lógica do jogo, movimento de peças, detecção de colisões e pontuação.
- * 
- * @author POO II 2026
- * @version 1.0
  */
 public class TetrisEngine {
     
@@ -25,8 +22,6 @@ public class TetrisEngine {
     
     /**
      * Constrói um novo engine de Tetris.
-     * 
-     * @param listener listener para eventos do jogo
      */
     public TetrisEngine(GameListener listener) {
         this.board = new Board();
@@ -58,8 +53,6 @@ public class TetrisEngine {
     
     /**
      * Gera uma nova peça aleatória.
-     * 
-     * @return nova Piece
      */
     private Piece createRandomPiece() {
         Piece.PieceType[] types = Piece.PieceType.values();
