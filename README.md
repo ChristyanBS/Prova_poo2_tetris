@@ -81,6 +81,7 @@ java -cp target/tetris-game-1.0.0.jar com.tetris.TetrisGame
 - **R**: Reiniciar (v0.2+)
 - **S**: Salvar (v1.0)
 - **L**: Carregar (v1.0)
+- **ESC**: Menu Principal(v1.0)
 
 ## Documentação
 
@@ -92,10 +93,6 @@ Os testes unitários estão em `src/test/java/com/tetris/` e cobrem todas as cla
 
 Execute com: `mvn test`
 
-## Autores
-
-[Adicionar nomes dos integrantes e RAs aqui]
-
-## Data de Entrega
+-----------------------------
 
 02 de junho de 2026
